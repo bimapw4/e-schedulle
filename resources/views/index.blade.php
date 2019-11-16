@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.css">
   <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../dist/css/AdminLTE.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   {{-- <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css"> --}}
@@ -241,7 +241,7 @@
 <!-- Slimscroll -->
 <script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../bower_components/fastclick/lib/fastclick.js"></script>
+{{-- <script src="../bower_components/fastclick/lib/fastclick.js"></script> --}}
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -249,6 +249,7 @@
 <!-- fullCalendar -->
 <script src="../bower_components/moment/moment.js"></script>
 <script src="../bower_components/fullcalendar/dist/fullcalendar.js"></script>
+
 <!-- Page specific script -->
 <script>
   $(function () {

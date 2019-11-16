@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="box box-primary">
+                <div class="box box-primary" style="border-radius:0px">
                     <div class="box-body no-padding">
                         <div id="calendar"></div>
                     </div>
@@ -76,4 +76,29 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+                }
+              })
+            $.ajax({
+              type: "GET",
+              url: 'http://ub.e-protokolri2.com/schedule?startdate=2020-03-01&enddate=2020-03-31',
+              headers: {
+                contentType: "application/json",
+                Authorization : `Bearer ${sessionStorage.getItem("token")}`,
+                dataType: 'json',
+              },
+              success: function (data) {
+                console.log(data)
+              },
+              error:function(error){
+                console.log(error)
+              }
+            });
+          });
+      </script>
 @endsection

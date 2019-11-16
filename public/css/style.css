@@ -121,6 +121,10 @@ input[type="color"]:focus,
     width: 100px;
     float: right;
 }
+.img-circle-agenda{
+    border-radius: 50%;
+    width: 65px;
+}
 .content-profil {
     margin: 0;
     padding: 0;
@@ -184,4 +188,75 @@ input[type="color"]:focus,
     font-size: 14pt;
     margin-top: 20px;
     text-align: center;
+}
+.center-widget{
+    display: flex;
+    justify-content: center;
+    padding-top: 11px;
+}
+.control-label-me{
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 10pt;
+    font-weight: lighter;
+    color: #314563;
+}
+.l-spacing{
+    margin-left:40px;
+}
+.p-spacing{
+    padding: 5px 20px 20px 5px;
+
+}
+.p-agenda{
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+}
+.style-form-control{
+    border-color: #abbde5;
+}
+.box-header-me {
+    color: #444;
+    display: block;
+    padding: 30px 30px 20px 30px;
+    position: relative;
+}
+.box-header-me.with-border{
+    border-bottom: 1px solid #d2cccc;
+}
+.text-agenda{
+  margin-top: 10px;
+}
+.text-agenda p{
+    font-size:11pt;
+}
+.pt-member{
+    padding-top: 20px;
+}
+.box-body-me{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 20px 10px 10px 10px;
+}
+.list-member{
+    border-bottom: 1px solid #d2cccc;
+    padding-bottom:20px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+.grid-member{
+    height: auto;
+    padding: 10px;
+    padding-top: 0;
+}
+.grid-member-2 {
+    height: auto;
+    padding: 10px;
+    padding-top: 0;
+    width: 30%;
 }

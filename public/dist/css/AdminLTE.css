@@ -1282,13 +1282,13 @@ a:focus {
  * ---------------
  */
 .form-control {
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: none;
-  border-color: #d2d6de;
+  border-color: #81aafe;
 }
 .form-control:focus {
-  border-color: #3c8dbc;
-  box-shadow: none;
+  border-color: #03a1fd;
+  box-shadow: 3px;
 }
 .form-control::-moz-placeholder,
 .form-control:-ms-input-placeholder,
@@ -1577,7 +1577,7 @@ a:focus {
  */
 .box {
   position: relative;
-  border-radius: 3px;
+  border-radius: 20px;
   background: #ffffff;
   border-top: 3px solid #d2d6de;
   margin-bottom: 20px;
@@ -1773,7 +1773,7 @@ a:focus {
   position: relative;
 }
 .box-header.with-border {
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid #d2cccc;
 }
 .collapsed-box .box-header.with-border {
   border-bottom: none;
@@ -1858,8 +1858,8 @@ a:focus {
 .box-footer {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
   border-top: 1px solid #f4f4f4;
   padding: 10px;
   background-color: #fff;
@@ -2297,13 +2297,15 @@ a:focus {
   background-color: #008d4c;
 }
 .btn-info {
-  background-color: #00c0ef;
-  border-color: #00acd6;
+  background-color: white;
+  border-color: #15527E;
+  color: #15527E;
 }
 .btn-info:hover,
 .btn-info:active,
-.btn-info.hover {
-  background-color: #00acd6;
+.btn-info:focus {
+  background-color: #15527E;
+  color: white;
 }
 .btn-danger {
   background-color: #dd4b39;
@@ -3063,9 +3065,9 @@ table.text-center th {
 }
 .widget-user .widget-user-header {
   padding: 20px;
-  height: 120px;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  height: 220px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 .widget-user .widget-user-username {
   margin-top: 0;
@@ -3079,17 +3081,18 @@ table.text-center th {
 }
 .widget-user .widget-user-image {
   position: absolute;
-  top: 65px;
-  left: 50%;
-  margin-left: -45px;
+  top: 135px;
+  left: 49%;
+  margin-left: -75px;
 }
 .widget-user .widget-user-image > img {
-  width: 90px;
+  width: 150px;
   height: auto;
   border: 3px solid #fff;
 }
 .widget-user .box-footer {
-  padding-top: 30px;
+  padding-top: 50px;
+  padding-bottom: 60px;
 }
 .widget-user-2 .widget-user-header {
   padding: 20px;

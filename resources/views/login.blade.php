@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="csrf-token" content="{{ csrf_token() }}">
   <title>e-Schedule</title>
   <!-- Tell the browser to be responsive to screen width -->
  
@@ -24,11 +25,11 @@
         <p style="margin-top:10px;">e-Schedulling</p>
       </div> 
       
-    <form action="" method="post">
+    <form action="#" method="post" id="form">
       <div class="style-input-me">
         <div class="input-group ">
             <span class="input-group-addon" style="border:none;"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input type="email" class="form-control-me " placeholder="Alamat email">
+            <input type="username" class="form-control-me" placeholder="Alamat email" id="username">
         </div>
       </div>
         {{-- <hr style="border:0.4px solid #d1d1d1; margin:0;"> --}}
@@ -36,7 +37,7 @@
       <div class="style-input">
         <div class="input-group">
             <span class="input-group-addon" style="border:none"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="email" class="form-control-me " placeholder="sandi">
+            <input type="password" class="form-control-me " placeholder="sandi" id="password">
         </div>
       </div>
         {{-- <hr style="border:0.4px solid #d1d1d1; margin:0;"> --}}
@@ -52,5 +53,38 @@
   </div>
   <!-- /.login-box-body -->
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<script>
+  $('#form').on('submit', function (event) {
+      event.preventDefault();
+      $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+          }
+        })
+      $.ajax({
+        type: "POST",
+        url: 'http://ub.e-protokolri2.com/login',
+        data: {
+          username: $('#username').val(),
+          password: $('#password').val(),
+        },
+        success: function (data) {
+         
+        
+          const token = data[0].data.access_token
+          const id = data[0].data.id
+          // console.log(token)
+          sessionStorage.setItem("token",token)
+          sessionStorage.setItem("id",id)
+           window.location.href = '/'
+        },
+        error:function(error){
+          console.log(error)
+        }
+      })
+    });
+</script>
