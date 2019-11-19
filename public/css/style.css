@@ -147,6 +147,10 @@ input[type="color"]:focus,
     padding-top: 10px;
     border-radius: 10px;
 }
+.box-schedule-over{
+    float:left;
+    overflow-x:auto;
+}
 .header-box-schedule{
     background-color: #C2D1DC;
     width: 100%;

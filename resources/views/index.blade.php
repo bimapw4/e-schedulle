@@ -252,6 +252,10 @@
 
 <!-- Page specific script -->
 <script>
+  token = sessionStorage.getItem("token")
+  if (token == null) {
+    window.location.replace("/")
+  } 
   $(function () {
 
     /* initialize the external events

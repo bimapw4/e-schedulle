@@ -59,32 +59,36 @@
 
 <script>
   $('#form').on('submit', function (event) {
-      event.preventDefault();
-      $.ajaxSetup({
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+        event.preventDefault();
+        $.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+            }
+          })
+        $.ajax({
+          type: "POST",
+          url: 'http://ub.e-protokolri2.com/login',
+          data: {
+            username: $('#username').val(),
+            password: $('#password').val(),
+          },
+          success: function (data) {
+          
+          
+            const token = data[0].data.access_token
+            const id = data[0].data.id
+            const position = data[0].data.position
+            const fullname = data[0].data.fullname
+            // console.log(token)
+            sessionStorage.setItem("token",token)
+            sessionStorage.setItem("id",id)
+            sessionStorage.setItem("position",position)
+            sessionStorage.setItem("fullname",fullname)
+            window.location.replace('dashboard')
+          },
+          error:function(error){
+            console.log(error)
           }
         })
-      $.ajax({
-        type: "POST",
-        url: 'http://ub.e-protokolri2.com/login',
-        data: {
-          username: $('#username').val(),
-          password: $('#password').val(),
-        },
-        success: function (data) {
-         
-        
-          const token = data[0].data.access_token
-          const id = data[0].data.id
-          // console.log(token)
-          sessionStorage.setItem("token",token)
-          sessionStorage.setItem("id",id)
-           window.location.href = '/'
-        },
-        error:function(error){
-          console.log(error)
-        }
-      })
     });
 </script>

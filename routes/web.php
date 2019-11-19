@@ -11,19 +11,19 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/dashboard', function () {
+    return view('schedule');
 });
 
 Route::post('/auth/login','Controller@login');
 
 Route::get('/', function () {
-    return view('schedule');
+    return view('login');
 });
 Route::get('/profil', function () {
     return view('profil');
 });
-Route::post('/agenda', function () {
+Route::get('/agenda', function () {
     return view('agenda');
 });
 Route::get('/member', function () {
