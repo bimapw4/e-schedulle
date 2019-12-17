@@ -30,199 +30,8 @@
                 </div>
             </div>
             <div class="box-body-me pt-member">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="grid-member">
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="grid-member">
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="grid-member">
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row list-member">
-                                <div class="col-sm-4">
-                                    <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg"
-                                        alt="User Avatar">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="text-agenda">
-                                        <p style="font-weight: bold">Rektor</p>
-                                        <p>John Miachel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id='level-2'>
+                    
                 </div>
             </div>
         </div>
@@ -232,7 +41,7 @@
     <script>
         $(document).ready(async function () {
             const user = await fetchUser(1)
-            const user_1 = await fetchUser(2)
+            const user_1 = await fetchUser(3)
             let level_1 = ''
 
             user[0].data.forEach((user, idx) => {
@@ -243,15 +52,16 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="text-agenda">
-                                <p style="font-weight: bold">${user.email}</p>
+                                <p style="font-weight: bold">${user.position}</p>
                                 <p>${user.fullname}</p>
                             </div>
                         </div>
                     </div>
                 `
             })
-
             $('#level-1').append(level_1)
+
+            
         });
 
             function fetchUser(level) {
@@ -266,8 +76,28 @@
                         },
                         //   console.log(url)
                         success: function (data) {
-                            console.log(data)
                             resolve(data);
+
+                            let level_1 = ''
+                            data[0].data.forEach((user, idx) => {
+                                level_1 += `
+                                <div class="col-sm-4" >
+                                    <div class="row ">
+                                        <div class="col-sm-4">
+                                            <img class="img-circle-agenda" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="text-agenda">
+                                                <p style="height:40px;font-size:10pt;font-weight: bold">${user.position}</p>
+                                                <p style="height:35px;font-size:10pt">${user.fullname}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr style="border:0.5px solid #d2cccc">
+                                </div>
+                                `
+                            })
+                            $('#level-2').html(level_1)
                         },
                         error:function(error){
                             reject(error);

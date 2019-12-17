@@ -3,21 +3,9 @@
 <div class="center-widget">
     <div class="col-md-5 col-xs-5">
         <!-- Widget: user widget style 1 -->
-        <div class="box box-widget widget-user">
+        <div class="box box-widget widget-user" id="widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
-            </div>
-            <div class="widget-user-image">
-                <img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
-            </div>
-            <div class="box-footer">
-                <h3 class="text-center">Dekan FT</h3>
-                <h5 class="text-center">Ubah Profil ></h5>
-                <h3 class="text-center">Alfian Ramadhan, S. ST.</h3>
-                <h4 class="text-center">Dekan Fakultas Teknik</h4>
-                <h4 class="text-center">08123456789</h4>
-                <h4 class="text-center">dekan.feb@ub.ac.id</h4>
-            </div>
+            
         </div>
         <!-- /.widget-user -->
     </div>
@@ -39,8 +27,26 @@
                 dataType: 'json',
               },
             //   console.log(url)
-              success: function (data) {
-                console.log(data)
+              success: function (success) {
+                let level1 = ''
+                profil = success[0].data
+                level1 += `
+                    <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;"></div>
+                    <div class="widget-user-image">
+                        <img class="img-circle" src="${profil.picture == null ? "../dist/img/user3-128x128.jpg" : profil.picture}" alt="User Avatar">
+                    </div>
+                    <div class="box-footer">
+                        <h3 class="text-center">${profil.position}</h3>
+                        <h5 class="text-center">Ubah Profil ></h5>
+                        <h3 class="text-center">${profil.fullname}</h3>
+                        <h4 class="text-center">${profil.position}</h4>
+                        <h4 class="text-center">${profil.phone == null ?"xxxxxxxxx" : profil.phone}</h4>
+                        <h4 class="text-center">${profil.email}</h4>
+                    </div>
+                  `
+                
+                $('#widget-user').html(level1)
+                console.log(success[0].data)
               },
               error:function(error){
                 console.log(error)

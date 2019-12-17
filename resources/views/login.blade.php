@@ -26,7 +26,7 @@
       </div> 
       
     <form action="#" method="post" id="form">
-      <div class="style-input-me">
+      <div class="style-input">
         <div class="input-group ">
             <span class="input-group-addon" style="border:none;"><i class="glyphicon glyphicon-envelope"></i></span>
             <input type="username" class="form-control-me" placeholder="Alamat email" id="username">
@@ -36,7 +36,7 @@
         <br/>
       <div class="style-input">
         <div class="input-group">
-            <span class="input-group-addon" style="border:none"><i class="glyphicon glyphicon-lock"></i></span>
+            <span class="input-group-addon" style="border:none"><i class="glyphicon glyphicon-lock" style=";border:black;"></i></span>
             <input type="password" class="form-control-me " placeholder="sandi" id="password">
         </div>
       </div>

@@ -19,14 +19,19 @@
             <div class="col-md-12">
                 <div class="box box-primary" style="border-radius:0px">
                     <div class="box-body no-padding">
-                        <div id="calendar"></div>
+                        <div id="calendar">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.col -->
         <div class="col-md-6">
-            <div class="box-schedule box-schedule-over" id="box-schedule">
+            <div class="box-schedule box-schedule-over">
+                <div style="width: 500px" id="box-schedule">
+
+                </div>
             <!-- /. box -->
         </div>
         <!-- /.col -->
@@ -54,7 +59,7 @@
                     data[0].data.forEach((schedulle, idx) => {
                     level += `
                     <div class="header-box-schedule">
-                    <h4>Selasa, 25 oktober 2019</h4>
+                    <h4>${schedulle.time}</h4>
                     </div>
                     <div class="body-box-schedule">
                         <div class="row" style="margin-top:20px">
@@ -65,26 +70,10 @@
                                 <h4 style="font-size:12pt">WIB</h4>
                             </div>
                             <div class="col-md-9 col-xs-9" style="padding:0">
-                                <p class="title-agenda">Pelantikan WD II Fakultas Kedokteran</p>
+                                <p class="title-agenda">${schedulle.name}</p>
                                 <div class="style-name-place">
                                     <i class="fa fa-map-marker pull-left"></i>
-                                    <p>Graha Medika Fakultas Kedokteran UB</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr style="border:0.5px solid #d9dbdc">
-                        <div class="row" style="margin-top:20px">
-                            <div class="col-md-2 col-xs-2 style-time">
-                                <h4>08.00</h4>
-                                <p style="">-</p>
-                                <h4>10.00</h4>
-                                <h4 style="font-size:12pt">WIB</h4>
-                            </div>
-                            <div class="col-md-9 col-xs-9" style="padding:0">
-                                <p class="title-agenda">Pelantikan WD II Fakultas Kedokteran</p>
-                                <div class="style-name-place">
-                                    <i class="fa fa-map-marker pull-left"></i>
-                                    <p>Graha Medika Fakultas Kedokteran UB</p>
+                                    <p>${schedulle.location}</p>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +81,7 @@
                     </div>
                     `
                 })
-                console.log(level)
+                console.log(data)
                 $('#box-schedule').html(level)
                  
                 },

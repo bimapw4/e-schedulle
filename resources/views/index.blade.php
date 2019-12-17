@@ -13,7 +13,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  {{-- <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css"> --}}
+  <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
   <!-- fullCalendar -->
   <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.css">
   <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
@@ -235,7 +235,7 @@
 <!-- jQuery 3 -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-{{-- <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script> --}}
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->

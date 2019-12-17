@@ -15,8 +15,6 @@ Route::get('/dashboard', function () {
     return view('schedule');
 });
 
-Route::post('/auth/login','Controller@login');
-
 Route::get('/', function () {
     return view('login');
 });
