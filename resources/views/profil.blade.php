@@ -20,7 +20,7 @@
               })
             $.ajax({
               type: "GET",
-              url: 'http://ub.e-protokolri2.com/user/' + `${sessionStorage.getItem("id")}`,
+              url: '{{config('view.API_DOMAIN')}}/user/' + `${sessionStorage.getItem("id")}`,
               headers: {
                 contentType: "application/json",
                 Authorization : `Bearer ${sessionStorage.getItem("token")}`,
@@ -33,7 +33,7 @@
                 level1 += `
                     <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;"></div>
                     <div class="widget-user-image">
-                        <img class="img-circle" src="${profil.picture == null ? "../dist/img/user3-128x128.jpg" : profil.picture}" alt="User Avatar">
+                        <img class="img-circle" src="${profil.picture == "" ? "../dist/img/user3-128x128.jpg" : profil.picture}" alt="User Avatar">
                     </div>
                     <div class="box-footer">
                         <h3 class="text-center">${profil.position}</h3>
@@ -46,7 +46,7 @@
                   `
                 
                 $('#widget-user').html(level1)
-                console.log(success[0].data)
+                // console.log(success[0].data)
               },
               error:function(error){
                 console.log(error)

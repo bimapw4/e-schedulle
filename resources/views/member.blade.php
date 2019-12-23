@@ -68,7 +68,7 @@
                 return new Promise((resolve, reject) => {
                     $.ajax({
                         type: "GET",
-                        url: 'http://ub.e-protokolri2.com/user?level=' + level,
+                        url: '{{config('view.API_DOMAIN')}}/user?level=' + level,
                         headers: {
                             contentType: "application/json",
                             Authorization : `Bearer ${sessionStorage.getItem("token")}`,

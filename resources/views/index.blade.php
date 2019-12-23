@@ -19,6 +19,10 @@
   <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/AdminLTE.css">
+  <script src="https://kit.fontawesome.com/4ed2e5a3f3.js" crossorigin="anonymous"></script>
+  <link rel="icon" sizes="192x192" href="https://material.io/static/images/simple-lp/favicons/components-192x192.png">
+  <link rel="shortcut icon" href="https://material.io/static/images/simple-lp/favicons/components-72x72.png">
+
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   {{-- <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css"> --}}
@@ -53,7 +57,7 @@
         <div class="col-md-5 col-xs-4">
           <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="#" data-toggle="push-menu" role="button">
                   <img src="../img/logo.svg" class="user-image" alt="User Image">
                   <span>e-Scheduling</span>
                 </a> 
@@ -82,9 +86,9 @@
               
               </li>
               <!-- Tasks: style can be found in dropdown.less -->
-              <li class="dropdown tasks-menu">
-                <a href="#" class="dropdown-toggle">
-                  <i class="fa fa-flag-o"></i>
+              <li class="dropdown tasks-menu" onclick="logout()">
+                <a class="dropdown-toggle" id="logout">
+                  <i class="fa fa-sign-out-alt"></i>
                 </a>
               </li>
               <!-- User Account: style can be found in dropdown.less -->
@@ -103,108 +107,39 @@
         <div class="pull-left image">
           <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
-          <p>Dekan FT</p>
-        </div>
+        <div class="pull-left info" id="position"></div>
       </div>
       <!-- search form -->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Alfian Ramadhan S,St</li>
+      <ul class="sidebar-menu">
+        <li class="header"></li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          <a href="/dashboard">
+            <i class="far fa-calendar-alt"></i>
+            <span>Agenda Saya</span>
           </a>
-          
         </li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
+          <a href="/agenda">
+            <i class="fas fa-plus"></i>
+            <span>Tambah Agenda</span>
           </a>
         </li>
         <li>
-          <a href="widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-        <li class="active">
-          <a href="calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
+            <hr style="border: 0.5px solid #c4c4c4;margin:0">
           </a>
         </li>
         <li>
-          <a href="mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
+          <a href="/member">
+            <i class="fas fa-home"></i></i> <span>Beranda</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          <a href="/profil">
+            <i class="fas fa-user-alt"></i>
+            <span>Profil</span>
           </a>
         </li>
       </ul>
@@ -252,10 +187,33 @@
 
 <!-- Page specific script -->
 <script>
-  token = sessionStorage.getItem("token")
-  if (token == null) {
-    window.location.replace("/")
-  } 
+  function logout() {
+    sessionStorage.clear();
+    window.location.reload();
+  }
+
+  $(document).ready(function () {
+
+    token = sessionStorage.getItem("token")
+    if (token == null) {
+      window.location.replace("/")
+    }
+
+    var date = new Date()
+    var m    = date.getMonth(),
+        y    = date.getFullYear()
+    var startdate = new Date(y, m , 1)
+    var enddate = new Date(y, m + 1, 0)
+
+    let position = `
+      <p style="font-size:12pt;margin-top:15px">${sessionStorage.getItem("position")}</p>
+    `
+    $('#position').html(position)
+
+    let name =`${sessionStorage.getItem("fullname")}`
+    $('.header').html(name)
+
+  }) 
   $(function () {
 
     /* initialize the external events

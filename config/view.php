@@ -12,7 +12,8 @@ return [
     | the usual Laravel view path has already been registered for you.
     |
     */
-
+    'API_DOMAIN' => env('APP_DOMAIN_API'),
+    
     'paths' => [
         resource_path('views'),
     ],

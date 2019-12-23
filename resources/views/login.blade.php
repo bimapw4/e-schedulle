@@ -25,7 +25,7 @@
         <p style="margin-top:10px;">e-Schedulling</p>
       </div> 
       
-    <form action="#" method="post" id="form">
+    <form method="post" id="form">
       <div class="style-input">
         <div class="input-group ">
             <span class="input-group-addon" style="border:none;"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -58,6 +58,13 @@
 </html>
 
 <script>
+  $(document).ready(function () {
+    token = sessionStorage.getItem("token")
+    if (token != null) {
+      window.location.replace("/member")
+    }
+  })
+
   $('#form').on('submit', function (event) {
         event.preventDefault();
         $.ajaxSetup({
@@ -65,26 +72,26 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
             }
           })
+          let url = ''
         $.ajax({
           type: "POST",
-          url: 'http://ub.e-protokolri2.com/login',
+          url: '{{ config('view.API_DOMAIN') }}/login',
           data: {
             username: $('#username').val(),
             password: $('#password').val(),
           },
-          success: function (data) {
-          
-          
+          success: function (data) {          
             const token = data[0].data.access_token
             const id = data[0].data.id
             const position = data[0].data.position
             const fullname = data[0].data.fullname
-            // console.log(token)
+            console.log(data)
             sessionStorage.setItem("token",token)
             sessionStorage.setItem("id",id)
             sessionStorage.setItem("position",position)
             sessionStorage.setItem("fullname",fullname)
-            window.location.replace('dashboard')
+            sessionStorage.setItem("img","")
+            window.location.replace('member')
           },
           error:function(error){
             console.log(error)
