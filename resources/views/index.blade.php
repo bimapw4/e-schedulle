@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="../css/style.css">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  {{-- test --}}
+  {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -104,8 +107,8 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <div class="pull-left image" id="img">
+          
         </div>
         <div class="pull-left info" id="position"></div>
       </div>
@@ -173,6 +176,8 @@
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+{{-- test --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <!-- Slimscroll -->
 <script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -213,6 +218,8 @@
     let name =`${sessionStorage.getItem("fullname")}`
     $('.header').html(name)
 
+    let img =`<img class="img-circle-agenda" src="${sessionStorage.getItem("img") === "" ? "../dist/img/user3-128x128.jpg": sessionStorage.getItem("img")}" alt="User Avatar">`
+    $('#img').html(img)
   }) 
   $(function () {
 
@@ -249,6 +256,15 @@
     var d    = date.getDate(),
         m    = date.getMonth(),
         y    = date.getFullYear()
+    var read = JSON.parse(sessionStorage.getItem('data'));
+
+    const events = read.map(event => {
+      const { name, time,  } = event;
+
+      return { title: name, start: time }
+    })
+    // console.log(events)
+
     $('#calendar').fullCalendar({
       header    : {
         left  : 'prev,next today',
@@ -262,80 +278,7 @@
         day  : 'day'
       },
       //Random default events
-      events    : [
-        {
-          title          : 'All Day Event',
-          start          : new Date(y, m, 1),
-          backgroundColor: '#f56954', //red
-          borderColor    : '#f56954' //red
-        },
-        {
-          title          : 'Long Event',
-          start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 2),
-          backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
-        },
-        {
-          title          : 'Meeting',
-          start          : new Date(y, m, d, 10, 30),
-          end            : "",
-          allDay         : false,
-          backgroundColor: '#0073b7', //Blue
-          borderColor    : '#0073b7' //Blue
-        },
-        {
-          title          : 'Lunch',
-          start          : new Date(y, m, d, 12, 0),
-          end            : new Date(y, m, d, 14, 0),
-          allDay         : false,
-          backgroundColor: '#00c0ef', //Info (aqua)
-          borderColor    : '#00c0ef' //Info (aqua)
-        },
-        {
-          title          : 'Birthday Party',
-          start          : new Date(y, m, d + 1, 19, 0),
-          end            : new Date(y, m, d + 1, 22, 30),
-          allDay         : false,
-          backgroundColor: '#00a65a', //Success (green)
-          borderColor    : '#00a65a' //Success (green)
-        },
-        {
-          title          : 'Click for Google',
-          start          : new Date(y, m, 28),
-          end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
-          backgroundColor: '#3c8dbc', //Primary (light-blue)
-          borderColor    : '#3c8dbc' //Primary (light-blue)
-        }
-      ],
-      editable  : true,
-      droppable : true, // this allows things to be dropped onto the calendar !!!
-      drop      : function (date, allDay) { // this function is called when something is dropped
-
-        // retrieve the dropped element's stored Event Object
-        var originalEventObject = $(this).data('eventObject')
-
-        // we need to copy it, so that multiple events don't have a reference to the same object
-        var copiedEventObject = $.extend({}, originalEventObject)
-
-        // assign it the date that was reported
-        copiedEventObject.start           = date
-        copiedEventObject.allDay          = allDay
-        copiedEventObject.backgroundColor = $(this).css('background-color')
-        copiedEventObject.borderColor     = $(this).css('border-color')
-
-        // render the event on the calendar
-        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-        $('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
-
-        // is the "remove after drop" checkbox checked?
-        if ($('#drop-remove').is(':checked')) {
-          // if so, remove the element from the "Draggable Events" list
-          $(this).remove()
-        }
-
-      }
+      events    : (events)
     })
 
     /* ADDING EVENTS */

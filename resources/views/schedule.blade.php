@@ -4,8 +4,8 @@
         <div class="col-md-6">
             <div class="col-md-12" style="margin-bottom:5%;">
                 <div class="row content-profil">
-                    <div class="col-sm-5">
-                        <img src="../dist/img/user2-160x160.jpg" class="img-circle-me" alt="User Image">
+                    <div class="col-sm-5" id="img-profile">
+                        
                     </div>
                     <div class="col-sm-7">
                         <h2>Agenda</h2>
@@ -18,7 +18,6 @@
                 <div class="box box-primary" style="border-radius:0px">
                     <div class="box-body no-padding">
                         <div id="calendar">
-
                         </div>
                     </div>
                 </div>
@@ -35,7 +34,8 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> --}}
     <script>
         $(document).ready(function () {
                 $.ajaxSetup({
@@ -43,22 +43,39 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
                     }
                 })
+                if (sessionStorage.getItem("reload") == "true") {
+                    this.location.reload();
+                    sessionStorage.setItem("reload","false")
+                }
+                
                 var date = new Date()
                         m    = date.getMonth() + 1;
                         y    = date.getFullYear();
                 var enddate = new Date(y, m, 0);
 
                 let url = '{{config('view.API_DOMAIN')}}'
+
+                if (sessionStorage.getItem('url')) {
+                    var linkid = sessionStorage.getItem('url')
+                    var link = `${url}/schedule?startdate=${y+"-"+ m +"-"+"1"}&enddate=${y+"-"+ m +"-"+ enddate.getDate()}${linkid}`
+                } else {
+                    var link = `${url}/schedule?startdate=${y+"-"+ m +"-"+"1"}&enddate=${y+"-"+ m +"-"+ enddate.getDate()}`
+                }
                 
                 $.ajax({
                 type: "GET",
-                url: `${url}/schedule?startdate=${y+"-"+ m +"-"+"1"}&enddate=${y+"-"+ m +"-"+ enddate.getDate()}`,
+                url: `${link}`,
                 headers: {
                     contentType: "application/json",
                     Authorization : `Bearer ${sessionStorage.getItem("token")}`,
                     dataType: 'json',
                 },
                 success: function (data) {
+                    var datasave = JSON.stringify(data[0].data)
+                    if (datasave == "") {
+                        sessionStorage.setItem('data', ['']);
+                    }
+                    sessionStorage.setItem('data', datasave);
                     let level = ''
                     data[0].data.forEach((schedulle, idx) => {
                     var st = schedulle.time; 
@@ -111,13 +128,15 @@
                 }
             });
 
-            let position = `
-            ${sessionStorage.getItem("position")}
-            `
+            let position = `${sessionStorage.getItem("position")}`
             $('#positon').append(position)
+
             let name =`${sessionStorage.getItem("fullname")}`
             $('#name').html(name)
-           
+
+            let img =`<img class="img-circle-me" src="${sessionStorage.getItem("img") === "" ? "../dist/img/user2-160x160.jpg": sessionStorage.getItem("img")}" alt="User Avatar">`
+        //    let img = `<img src="../dist/img/user2-160x160.jpg" class="img-circle-me" alt="User Image">`
+           $('#img-profile').html(img)
           });
       </script>
 @endsection

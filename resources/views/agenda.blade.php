@@ -120,9 +120,9 @@
           </div>
           <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label-me">Peserta Agenda</label>
-
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputPassword3">
+              <select class="selectpicker form-control" multiple data-live-search="true"  id="member">
+              </select>
             </div>
           </div>
         </div>
@@ -137,6 +137,36 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>
+     $(document).ready(function () {
+      $.ajaxSetup({
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+            }
+        })
+        $.ajax({
+        type: "GET",
+        url: '{{config('view.API_DOMAIN')}}/user',
+        headers: {
+            contentType: "application/json",
+            Authorization : `Bearer ${sessionStorage.getItem("token")}`,
+            dataType: 'json',
+        },
+        success: function (data) {
+          let level = ''
+          data[0].data.forEach((user, idx) => {
+            level += `
+              <option value='${user.id}'>${user.fullname}</option>
+              `
+          })
+          $('#member').append(level).selectpicker('refresh');
+          console.log($('#member'))
+        },
+        error:function(error){
+            console.log(error)
+        }
+      })
+    })
+
     $('#form').on('submit', function (event) {
           event.preventDefault();
           $.ajaxSetup({
@@ -161,16 +191,17 @@
               "endtime" : $('#dateend').val() +" "+ $('#timeend').val()+":00",
               "is_repeat": $('#repeat').val(),
               "type" :$('#type').val(),
+              "participant" :$('#member').val(),
               "status" : 1
             },
             success: function (data) {
+              window.location.reload();
+              alert("success add schedulle")
               // window.location.replace('dashboard')
-              console.log("fjdfd")
             },
             error:function(error){
               console.log(error)
             }
-            
           })
       });
   </script>
