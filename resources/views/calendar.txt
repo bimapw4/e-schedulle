@@ -1,0 +1,54 @@
+function dd(read) {
+     read.map(r => r.time = r.time.slice(0, 10))
+                    const result = []
+
+                    for (const time of read) {
+                        if (result.indexOf(time.time) < 0) {
+                            result.push(time.time)
+                        }
+                    }
+
+                    let finalResult = []
+
+                    result.map(
+                        time => {
+                            const dd = read.filter(re => re.time == time)
+
+                            let color = [
+                            '#f56954', // red
+                            '#f39c12', // yellow
+                            '#0073b7', // blue
+                            '#00a65a', // green
+                            '#3c8dbc' // light blue
+                        ]
+
+                        dd.map((d, idx) => {
+                            if (idx == dd.length - 1) {
+                                const { time, name } = d
+
+                                const e = {
+                                start: time,
+                                backgroundColor: color[idx],
+                                borderColor    : color[idx]
+                                }
+                                finalResult.push(e)
+                            }
+                        })
+                    })
+
+                    $('#calendar').fullCalendar({
+                        header    : {
+                            left  : 'prev,next today',
+                            center: 'title',
+                            right : 'month,agendaWeek,agendaDay'
+                        },
+                        buttonText: {
+                            today: 'today',
+                            month: 'month',
+                            week : 'week',
+                            day  : 'day'
+                        },
+                        //Random default events
+                        events    : (finalResult)
+                    })
+                }

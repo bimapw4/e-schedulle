@@ -13350,9 +13350,9 @@ var TimeGridEventRenderer = /** @class */ (function (_super) {
                 ' href="' + util_1.htmlEscape(eventDef.url) + '"' :
                 '') +
             (skinCss ?
-                ' style="' + skinCss + '"' :
-                '') +
-            '>' +
+                ' style="' + skinCss + 'width: 10px;margin-left: 46px;margin-top: -45px;border-radius: 30px;"' :
+                ' style ="width: 10px;margin-left: 46px;margin-top: -45px;border-radius: 30px;"') +
+            ' >' +
             '<div class="fc-content">' +
             (timeText ?
                 '<div class="fc-time"' +
@@ -13868,8 +13868,8 @@ var DayGridEventRenderer = /** @class */ (function (_super) {
                 ' href="' + util_1.htmlEscape(eventDef.url) + '"' :
                 '') +
             (skinCss ?
-                ' style="' + skinCss + '"' :
-                '') +
+                ' style="' + skinCss + ' width: 10px;margin-left: 46px;margin-top: -45px;border-radius: 30px;"' :
+                'style="width: 15px;margin-left: 46px;margin-top: -45px;border-radius: 30px;"') +
             '>' +
             '<div class="fc-content">' +
             (this.dayGrid.isRTL ?
