@@ -16,7 +16,13 @@
 </head>
 <body class="bg-login-page">
 <div class="login-box">
-  <!-- /.login-logo -->
+ 
+    {{-- <div class="alert alert-danger alert-dismissible" hidden>
+      <h4><i class="icon fa fa-ban" ></i> Alert!</h4>
+      Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire
+      soul, like these sweet mornings of spring which I enjoy with my whole heart.
+    </div> --}}
+    
   <div class="login-body">
     <p class="login-msg">Selamat Datang di</p>
 
@@ -29,7 +35,7 @@
       <div class="style-input">
         <div class="input-group ">
             <span class="input-group-addon" style="border:none;"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input type="username" class="form-control-me" placeholder="Alamat email" id="username">
+            <input type="username" class="form-control-me" placeholder="Alamat email" id="username" required>
         </div>
       </div>
         {{-- <hr style="border:0.4px solid #d1d1d1; margin:0;"> --}}
@@ -37,7 +43,7 @@
       <div class="style-input">
         <div class="input-group">
             <span class="input-group-addon" style="border:none"><i class="glyphicon glyphicon-lock" style=";border:black;"></i></span>
-            <input type="password" class="form-control-me " placeholder="sandi" id="password">
+            <input type="password" class="form-control-me " placeholder="sandi" id="password" required>
         </div>
       </div>
         {{-- <hr style="border:0.4px solid #d1d1d1; margin:0;"> --}}
@@ -95,7 +101,9 @@
             window.location.replace('member')
           },
           error:function(error){
-            console.log(error)
+            if (error.status === 422) {
+              alert("check your username or password")
+            }
           }
         })
     });

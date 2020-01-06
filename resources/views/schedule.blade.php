@@ -67,59 +67,71 @@
                     dataType: 'json',
                 },
                 success: function (data) {
-                    var datasave = JSON.stringify(data[0].data)
-                    if (datasave == "") {
-                        sessionStorage.setItem('data', ['']);
-                    }
-                    sessionStorage.setItem('data', datasave);
                     let level = ''
-                    let tanggal = ''
-                    data[0].data.forEach((schedulle, idx) => {
-                    var st = schedulle.time; 
-                    var timestart = st.slice(11, 16);
+                    let tanggal  = ''
+                    for (let i = 1; i <= enddate.getDate(); i++) {
+                        
+                        var day = new Date(yy,mm - 1,i).getDay()
 
-                    var et = schedulle.endtime; 
-                    var timeend = et.slice(11, 16);
-                    
-                    var numday = st.slice(8, 10);
-                    var nummonth = st.slice(5, 7) - 1;
-                    var numyear = st.slice(0, 4);
+                        var daymaster = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","minggu"]
+                        var monthmaster = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember","Januari"]
 
-                    var day = new Date(numyear,nummonth,numday).getDay()
+                        var days = daymaster[day]
+                        var month = monthmaster[mm]
 
-                    var daymaster = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","minggu"]
-                    var monthmaster = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember","Januari"]
+                        const eventsInThisDate = data[0].data.filter(event => {
+                            const { time } = event
+                            const timeToDate = new Date(time).getDate()
 
-                    var days = daymaster[day]
-                    var month = monthmaster[nummonth]
-                    // console.log(monthmaster[nummonth])
-                    if (tanggal !== numday){
-                        tanggal = numday
-                        level += `
-                            <div class="header-box-schedule">
-                            <h4>${days+", "+numday+" "+month+" "+numyear}</h4>
-                            </div>
-                            `
-                    }
-                    level += `<div class="body-box-schedule">
-                        <div class="row" style="margin-top:20px">
-                            <div class="col-md-2 col-xs-2 style-time">
-                                <h4>${timestart}</h4>
-                                <p style="">-</p>
-                                <h4>${timeend}</h4>
-                                <h4 style="font-size:12pt">WIB</h4>
-                            </div>
-                            <div class="col-md-9 col-xs-9" style="padding:0">
-                                <p class="title-agenda">${schedulle.name}</p>
-                                <div class="style-name-place">
-                                    <i class="fa fa-map-marker pull-left"></i>
-                                    <p>${schedulle.location}</p>
+                            return timeToDate === i
+                        })
+
+                        let events = ''
+
+                        if (eventsInThisDate.length === 0) {
+                            events += `
+                                <div class="body-box-schedule">
+                                    <div class="row" style="margin-top:20px">
+                                        <div class="col-md-12 col-xs-12" style="padding:0">
+                                            <p class="title-agenda text-center">Tidak ada agenda</p>
+                                        </div>
+                                    </div>
+                                    <hr style="border:0.5px solid #d9dbdc">
                                 </div>
-                            </div>
+                                `
+                        } else {
+                            eventsInThisDate.map(d => {
+                                events += `
+                                <div class="body-box-schedule">
+                                    <div class="row" style="margin-top:20px">
+                                        <div class="col-md-2 col-xs-2 style-time">
+                                            <h4>${d.time.slice(11, 16)}</h4>
+                                            <p style="">-</p>
+                                            <h4>${d.endtime.slice(11, 16)}</h4>
+                                            <h4 style="font-size:12pt">WIB</h4>
+                                        </div>
+                                        <div class="col-md-9 col-xs-9" style="padding:0">
+                                            <p class="title-agenda">${d.name}</p>
+                                            <div class="style-name-place">
+                                                <i class="fa fa-map-marker pull-left"></i>
+                                                <p>${d.location}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr style="border:0.5px solid #d9dbdc">
+                                </div>
+                                `
+                            })
+                        }
+
+                        level += `
+                        <div class="header-box-schedule">
+                            <h4>${days+", "+i+" "+month+" "+yy}</h4>
                         </div>
-                        <hr style="border:0.5px solid #d9dbdc">
-                    </div>`
-                })
+                        ${events}`
+                    }
+
+                    console.log(data[0].data)
                 $('#box-schedule').html(level)
                 // console.log(data[0].data)
                 },
