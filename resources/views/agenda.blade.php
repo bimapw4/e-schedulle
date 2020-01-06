@@ -15,7 +15,7 @@
             <label for="inputEmail3" class="col-sm-2 control-label-me">Judul Agenda</label>
 
             <div class="col-sm-10">
-              <input type="text" class="form-control" autocomplete="off" id="judul">
+              <input type="text" class="form-control" autocomplete="off" id="judul" required>
             </div>
           </div>
           <div class="form-group">
@@ -23,31 +23,13 @@
 
             <div class="col-sm-9">
               <div class="col-sm-3" style="padding: 0">  
-                {{-- <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select> --}}
-                <input class="form-control select2" type="date" id="datestart">
+                <input class="form-control select2" type="date" id="datestart" required>
               </div>
               <div class="col-sm-1">
                   <hr style="border: 1px solid #83b6f5;">
               </div>
               <div class="col-sm-3" style="padding: 0">
-                {{-- <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select> --}}
-                <input class="form-control select2" type="date" id="dateend">
+                <input class="form-control select2" type="date" id="dateend" required>
               </div>
             </div>
           </div>
@@ -56,31 +38,13 @@
 
             <div class="col-sm-7">
                 <div class="col-sm-3" style="padding: 0">  
-                  {{-- <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select> --}}
-                  <input class="form-control select2" type="time" id="timestart">
+                  <input class="form-control select2" type="time" id="timestart" required>
                 </div>
                 <div class="col-sm-1">
                     <hr style="border: 1px solid #83b6f5;">
                 </div>
                 <div class="col-sm-3" style="padding: 0">
-                  {{-- <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select> --}}
-                  <input class="form-control select2" type="time" id="timeend">
+                  <input class="form-control select2" type="time" id="timeend" required>
                 </div>
               </div>
           </div>    
@@ -88,14 +52,13 @@
             <label for="inputPassword3" class="col-sm-2 control-label-me">Lokasi Agenda</label>
 
             <div class="col-sm-10">
-              <input type="text" class="form-control" autocomplete="off" id="lokasi">
+              <input type="text" class="form-control" autocomplete="off" id="lokasi" required>
             </div>
           </div>        
           <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label-me">Jenis Agenda</label>
-
             <div class="col-sm-3">
-              <select class="form-control select2" style="width: 100%;" id="type">
+              <select class="form-control select2" style="width: 100%;" id="type" required>
                   <option selected="selected" value=""></option>
                   <option value="RAPAT_KERJA">Rapat Kerja</option>
                   <option value="WORKSHOP">Workshop</option>
@@ -110,7 +73,7 @@
             <label for="inputPassword3" class="col-sm-2 control-label-me">Sifat Agenda</label>
 
             <div class="col-sm-3">
-                <select class="form-control select2" style="width: 100%;" id="repeat">
+                <select class="form-control select2" style="width: 100%;" id="repeat" required>
                     <option selected="selected" value=""></option>
                     <option value="WEEK">Week</option>
                     <option value="MONTH">Month</option>
@@ -121,7 +84,7 @@
           <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label-me">Peserta Agenda</label>
             <div class="col-sm-5">
-              <select class="selectpicker form-control" multiple data-live-search="true"  id="member">
+              <select class="selectpicker form-control" multiple data-live-search="true"  id="member" required>
               </select>
             </div>
           </div>
@@ -159,7 +122,7 @@
               `
           })
           $('#member').append(level).selectpicker('refresh');
-          console.log($('#member'))
+          // console.log($('#member'))
         },
         error:function(error){
             console.log(error)
@@ -197,7 +160,7 @@
             success: function (data) {
               window.location.reload();
               alert("success add schedulle")
-              // window.location.replace('dashboard')
+              window.location.replace('dashboard')
             },
             error:function(error){
               console.log(error)

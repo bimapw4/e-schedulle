@@ -96,8 +96,7 @@
             sessionStorage.setItem("id",id)
             sessionStorage.setItem("position",position)
             sessionStorage.setItem("fullname",fullname)
-            sessionStorage.setItem("img","")
-            // sessionStorage.setItem("reload","true")
+            sessionStorage.setItem("img",data[0].data.picture)           
             window.location.replace('member')
           },
           error:function(error){

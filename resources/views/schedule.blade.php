@@ -130,8 +130,6 @@
                         </div>
                         ${events}`
                     }
-
-                    console.log(data[0].data)
                 $('#box-schedule').html(level)
                 // console.log(data[0].data)
                 },
